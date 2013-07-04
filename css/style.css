@@ -1,0 +1,115 @@
+/* 
+    Documento   : style
+    Criado em   : 30/06/2013, 00:37:20
+    Autor       : marlonp
+    Descrição   :
+        Regras a serem seguidas pelo CSS.
+*/
+
+* { padding: 0; margin: 0; text-decoration: none;}
+
+body {
+    color: 000;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    overflow: hidden;
+}
+
+.preto { color: #000; }
+.cinza { color: #555; }
+
+#loading {
+    background: #fff1a8;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+    font-weight : bolder;
+    padding: 5px;
+    position: absolute;
+    margin: auto;
+    display:none;
+    text-align: center;
+}
+
+header { 
+    background: #f1f1f1; 
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+
+#geral { width: 100%; }
+
+#btn-incluir {
+    background: rgb(219,68,55);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #fff;
+    cursor:pointer;
+    padding: 10px;
+    text-align:center;
+    width: 200px;
+}
+
+#form-incluir {
+    background: #eee;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+    display: none;
+    padding: 10px;
+    position:relative;    
+}
+
+nav {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 20%;
+}
+
+#menu {
+    overflow:scroll;
+    text-align: left;
+}
+
+#menu li {
+    border-left: 3px solid #fff;
+    cursor:pointer;
+    display:block; 
+    padding: 3px 10px;
+}
+
+#menu li:hover {
+    border-left: 3px solid #f00;    
+    cursor:pointer;
+    display:block;
+}
+
+#rss {
+    display: inline-block;
+    vertical-align: top;
+    width:75%;
+}
+
+#feed-list {
+    overflow:auto;
+    padding: 15px;
+}
+
+.title {    
+    border-bottom: 1px solid #aaa;
+    cursor:pointer;
+    display:block;
+    font-weight: bolder;    
+    padding: 5px 10px;
+}
+
+.content { 
+    display:none; 
+    text-indent: 10px;
+}
+
+.clear { clear:both; }
+
+#login-container {
+    margin: auto;
+    width: 50%;
+
+}
