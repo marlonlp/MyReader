@@ -9,7 +9,7 @@
         $feed = strip_tags($_POST['site']);
         
         $rss = simplexml_load_file($feed);
-        $limit = 3;
+        $limit = 10;
         $count = 0;
         $retorno = '';
         

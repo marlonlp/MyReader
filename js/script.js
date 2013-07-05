@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     $("#loading").ajaxStart(function(){
 		$(this).show();
 	});
@@ -31,7 +32,6 @@ $(document).ready(function(){
     $('#fechar').click(function(){
         $('#form-incluir').hide();
     });
-    $('#menu').load('./menu.php');
     $('#menu').on('click', 'li', function() {
         var id_site = $(this).attr('data-site');
         var feed_title = $(this).attr('data-title');
@@ -57,4 +57,12 @@ $(document).ready(function(){
         });
         return false;
     });
+
+    $('#btn-logoff').click(function(){
+        window.location = '?logout';
+    }); 
+    $('#btn-login').click(function(){
+        var url = $(this).attr('data-url');
+        window.location = url;
+    }); 
 });

@@ -11,6 +11,7 @@
 body {
     color: 000;
     font-family: Tahoma, Verdana, Arial, sans-serif;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -35,6 +36,8 @@ header {
     padding: 5px 10px;
 }
 
+header h1 { display:inline-block;}
+
 #geral { width: 100%; }
 
 #btn-incluir {
@@ -43,10 +46,39 @@ header {
     border-radius: 2px;
     color: #fff;
     cursor:pointer;
+    display:inline-block;
+    margin-left: 20px;
     padding: 10px;
     text-align:center;
     width: 200px;
 }
+
+#btn-login {
+    background: rgb(66,133,244);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #fff;
+    cursor:pointer;
+    display:inline-block;
+    margin-left: 20px;
+    padding: 10px;
+    text-align:center;
+}
+
+
+
+#btn-logoff {
+    background: rgb(219,68,55);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #fff;
+    cursor:pointer;
+    display:inline-block;
+    margin-left: 20px;
+    padding: 10px;
+    text-align:center;
+}
+
 
 #form-incluir {
     background: #eee;
@@ -65,7 +97,8 @@ nav {
 }
 
 #menu {
-    overflow:scroll;
+    overflow:auto;
+    max-height:500px;
     text-align: left;
 }
 
@@ -90,6 +123,7 @@ nav {
 
 #feed-list {
     overflow:auto;
+    max-height: 500px;
     padding: 15px;
 }
 
@@ -108,8 +142,15 @@ nav {
 
 .clear { clear:both; }
 
-#login-container {
-    margin: auto;
-    width: 50%;
 
+#login-container {
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,.3);
+    margin: 30px auto;
+    width: 30%;
+}
+
+#form-login input {
+    display: block;
+    margin: 5px;
 }
