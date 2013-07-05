@@ -9,9 +9,9 @@ class Conexao {
 
     //Dados de conexão com o banco.
     var $host = "localhost"; // Nome do Servidor
-    var $user = "marlonlp"; // Usuário do Servidor MySQL
-    var $pass = "heta9ebyd"; // Senha do Usuário MySQL
-    var $dbase = "marlon_reader"; // Nome do Banco de Dados
+    var $user = "root"; // Usuário do Servidor MySQL
+    var $pass = ""; // Senha do Usuário MySQL
+    var $dbase = "my_reader"; // Nome do Banco de Dados
 
     //Variáveis utilizadas na classe;
     var $sql;
