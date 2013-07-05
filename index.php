@@ -1,4 +1,9 @@
 <?php
+    // Mostra todos os erros do php.
+    ini_set('display_errors',1);
+    ini_set('display_startup_erros',1);
+    error_reporting(E_ALL);
+
     require_once 'classes/Google_Client.php';
     require_once 'classes/contrib/Google_Oauth2Service.php';
     
