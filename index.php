@@ -8,7 +8,7 @@
     $client->setApplicationName("My Reader");
     $client->setClientId('266746408635.apps.googleusercontent.com');
     $client->setClientSecret('f2N0jotdMp4hzZGGxtcEh4I8');
-    $client->setRedirectUri('http://localhost/myreader.com.br/');
+    $client->setRedirectUri('http://myreader.com.br/');
     $oauth2 = new Google_Oauth2Service($client);
     
     if (isset($_REQUEST['logout'])) {
@@ -70,6 +70,7 @@
             <span id='btn-incluir'>Inscrever novo RSS <i class="icon-rss"></i></span>
             <span id='form-incluir'>
                 <input type="url" placeholder="Endereço RSS" id='url' autofocus="autofocus">
+                <input type="hidden" id='email' autofocus="autofocus" value="<?php print $email ?>">
                 <span id='incluir'><i class="icon-ok"></i></span>
                 <span id='fechar'><i class='icon-remove'></i></span>
             </span>
@@ -86,23 +87,11 @@
         <section id='geral'>
             <nav id='lateral'>
                 <ul id='menu'>
-                    <?php
-                        $conexao = new Conexao();
-                        $sql = "SELECT * FROM subscriptions ORDER BY title ASC";
-                        $conexao->Executar($sql);
-                        if($conexao) {
-                            while ($rs = $conexao->MostrarResultados()) {
-                                $id = $rs[0];
-                                $site = $rs[1];
-                                $title = $rs[2];
-                            echo "<li id='$id' data-site='$site' data-title='$title'>$title</li>";
-                            }
-                        }
-                    ?>
+                    
                 </ul>
             </nav>
             <section id='rss'>
-                <div id='loading'>Carregando...</div>
+                <div id='loading'><i class="icon-spinner icon-spin"></i> Carregando...</div>
                 <h2 id='feed-title'></h2>
                 <article id='feed-list'></article>
             

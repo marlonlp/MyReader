@@ -5,24 +5,29 @@ $(document).ready(function(){
 	});
 	$("#loading").ajaxComplete(function(){
 		$(this).hide();
-	});			    
+	});
     $('#btn-incluir').click(function(){
         $('#form-incluir').show();
     });
     $('#rss').on('click', '.title', function(){
+		$(this).addClass('view');
         $('.content').hide();
         $(this).next('.content').show();
+        
     });
+    $('#menu').load('./menu.php?email=' + $('#email').val());
     $('#incluir').click(function(){
         var acao = 'incluir';
         var site = $('#url').val();
+        var email = $('#email').val();
         $.ajax({
             type: 'POST',
             url: './rss.php',
-            data: "acao=" + acao + "&site=" + site,
+            data: "acao=" + acao + "&site=" + site + "&email=" + email,
             success: function(txt){
-                $('#menu').load('./menu.php');
+                $('#menu').load('./menu.php?email=' + email + '');
                 $('#url').val('');
+                $('#form-incluir').hide();
             },
             error: function(txt){
                 alert('Ocorreu um erro. ' + txt);
@@ -33,6 +38,8 @@ $(document).ready(function(){
         $('#form-incluir').hide();
     });
     $('#menu').on('click', 'li', function() {
+		var id = this.id;
+		console.log(id);
         var id_site = $(this).attr('data-site');
         var feed_title = $(this).attr('data-title');
         var acao = 'listar';
@@ -41,7 +48,7 @@ $(document).ready(function(){
         $.ajax({
             type: 'POST',
             url: './rss.php',
-            data: "acao=" + acao + "&site=" + id_site,
+            data: "acao=" + acao + "&site=" + id_site + "&id=" + id,
             beforeSend: function(){
                 $('#loading').show();
             },            
