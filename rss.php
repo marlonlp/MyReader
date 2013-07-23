@@ -19,12 +19,18 @@
             	$conexao = new Conexao();
             	$sql = "SELECT link FROM feeds WHERE link = '".$item->link."'";
 		        $conexao->Executar($sql);
+                if ($item->children('content', true) == true) {
+                    $content = $item->children('content', true);
+                } else {
+                    $content = $item->description;
+                }
+                    
 		        if($conexao->ContarLinhas() == 0) {
 		        	$sql = "INSERT INTO feeds (id_subscription, link) VALUES ($id, '".$item->link."')";
 		        	$conexao->Executar($sql);
-		        };
+		        }
                 $retorno .= '<span id="'.$item->link.'" class="title ">'.$item->title.'</span>
-                <div class="content">'.$item->children('content', true).'</div>';
+                <div class="content">'.$content.'</div>';
                 $count++;
                 //if($count == $limit) break;
             }

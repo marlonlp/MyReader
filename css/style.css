@@ -6,17 +6,30 @@
         Regras a serem seguidas pelo CSS.
 */
 
+@font-face {
+    font-family : 'Roboto Light';
+    font-style : normal;
+    font-weight : 400;
+    src : local('Roboto Light'), url(../font/Roboto-Light.ttf) format('truetype');
+}
+
+::-webkit-scrollbar {width: 12px;}
+::-webkit-scrollbar-track {background:rgb(222,222,222);}
+::-webkit-scrollbar-thumb {background: rgb(189,189,189);}
+
 * { padding: 0; margin: 0; text-decoration: none;}
 
 body {
-    color: 000;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    color: rgb(0,0,0);
+    font-family: 'Roboto Light', Tahoma, Verdana, Arial, sans-serif;
     height: 100%;
-    overflow: hidden;
+    overflow:hidden;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
 }
 
-.preto { color: #000; }
-.cinza { color: #555; }
+.preto {color: #000;}
+.cinza {color: #555;}
 
 #loading {
     background: #fff1a8;
@@ -30,42 +43,30 @@ body {
     text-align: center;
 }
 
-header { 
-    background: #f1f1f1; 
-    margin-bottom: 10px;
-    padding: 5px 10px;
+.github {
+    background: rgb(0,0,0);
+    color: rgb(255,255,255);
+    padding: 2px 15px;
+    position: fixed; top: 75px; right: 0; border: 0;
 }
 
-header h1 { display:inline-block;}
+#header { 
+    background: #f1f1f1;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+    height: 64px;
+    padding: 5px 10px;
+    position:fixed;
+    width: 100%;
+    z-index:10;
+}
+
+#header .header {
+    display:inline-block;
+    line-height: 32px;
+    vertical-align:middle;
+}
 
 #geral { width: 100%; }
-
-#btn-incluir {
-    background: rgb(219,68,55);
-    border: 1px solid transparent;
-    border-radius: 2px;
-    color: #fff;
-    cursor:pointer;
-    display:inline-block;
-    margin-left: 20px;
-    padding: 10px;
-    text-align:center;
-    width: 200px;
-}
-
-#btn-login {
-    background: rgb(66,133,244);
-    border: 1px solid transparent;
-    border-radius: 2px;
-    color: #fff;
-    cursor:pointer;
-    display:inline-block;
-    margin-left: 20px;
-    padding: 10px;
-    text-align:center;
-}
-
-
 
 #btn-logoff {
     background: rgb(219,68,55);
@@ -74,56 +75,76 @@ header h1 { display:inline-block;}
     color: #fff;
     cursor:pointer;
     display:inline-block;
-    margin-left: 20px;
+    right: 10px;
+    position:absolute;
+    margin:0 20px;
     padding: 10px;
     text-align:center;
 }
 
+#lateral {
+    background: #f1f1f1;
+    float:left;
+    padding-top:85px;
+    width: 20%;
+}
 
 #form-incluir {
     background: #eee;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 2px rgba(0,0,0,.3);
-    display: none;
+    display:inline-block;
     padding: 10px;
-    position:relative;    
+    text-align: left;
 }
 
-nav {
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    width: 20%;
+#feeds {
+    background: rgb(230,230,230);
+    overflow:auto;
+    max-height:415px;    
+}
+
+.feed-header {
+    background:rgb(255,125,0);
+    display:block;
+    font-weight:bold;
+    margin-top:10px;
+    padding: 5px 10px;
+    text-align:left;
 }
 
 #menu {
-    overflow:auto;
-    max-height:500px;
     text-align: left;
 }
 
 #menu li {
-    border-left: 3px solid #fff;
+    border-left: 3px solid rgb(230,230,230);
     cursor:pointer;
     display:block; 
     padding: 3px 10px;
 }
 
 #menu li:hover {
-    border-left: 3px solid #f00;    
+    border-left: 3px solid rgb(219,68,55);    
     cursor:pointer;
     display:block;
 }
 
+.ativo {
+    background:rgb(219,68,55);
+    border-left: 3px solid rgb(219,68,55) !important;
+    color: rgb(255,255,255);
+    display:block;
+}
+
 #rss {
-    display: inline-block;
-    vertical-align: top;
+    float:left;
+    max-height:415px;            
+    overflow: auto;
+    padding:85px 5px;    
     width:75%;
 }
 
 #feed-list {
-    overflow:auto;
-    max-height: 500px;
     padding: 15px;
 }
 
@@ -132,7 +153,7 @@ nav {
     cursor:pointer;
     display:block;
     font-weight: bolder;    
-    padding: 5px 10px;
+    padding: 5px;
 }
 
 .content { 
@@ -144,13 +165,43 @@ nav {
 
 
 #login-container {
-    border-radius: 5px;
-    box-shadow: 0 1px 2px 1px rgba(0,0,0,.3);
-    margin: 30px auto;
-    width: 30%;
+    margin: 200px auto;
+    vertical-align:top;
+    width: 650px;
 }
 
-#form-login input {
-    display: block;
+#login-container .header {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+#login-container h1 {
+    font-size: 64px;
+    line-height: 64px;
+    margin-right: 30px;
+}
+
+#social-login {
+    display:inline-block;
+    height:100%;
+}
+
+.btn-login {
+    border-radius: 2px;
+    color: #fff;
+    cursor:pointer;
+    display:block;
+    padding:5px 20px;
     margin: 5px;
+    text-align:left;    
+}
+
+#login-google {
+    background: #245DC1;
+}
+#login-twitter {
+    background: #39A9E0;
+}
+#login-facebook {
+    background: #3B5998;
 }
