@@ -138,14 +138,18 @@ body {
 
 #rss {
     float:left;
-    max-height:415px;            
-    overflow: auto;
     padding:85px 5px;    
     width:75%;
 }
 
 #feed-list {
+    max-height:415px;            
+    overflow: auto;    
     padding: 15px;
+}
+
+.pub-date {
+    float: right;
 }
 
 .title {    

@@ -29,7 +29,7 @@
 		        	$sql = "INSERT INTO feeds (id_subscription, link) VALUES ($id, '".$item->link."')";
 		        	$conexao->Executar($sql);
 		        }
-                $retorno .= '<span id="'.$item->link.'" class="title ">'.$item->title.'</span>
+                $retorno .= '<span id="'.$item->link.'" class="title ">'.$item->title.' <span class="pub-date">'.$item->pubDate.'</span></span>
                 <div class="content">'.$content.'</div>';
                 $count++;
                 //if($count == $limit) break;
@@ -78,6 +78,17 @@
         if($conexao->ContarLinhas() == 0) {
         	$user_subscription = "INSERT INTO user_subscription (id_user, id_subscription) VALUES ('$id_user', '$id_subscription')";
         	$conexao->Executar($user_subscription);
+        };
+    }  else if ($acao == 'excluir') {
+        $conexao = new Conexao();
+        $id = strip_tags($_POST['id']);
+        
+        $sql = "DELETE FROM user_subscription WHERE id = $id";
+        $conexao->Executar($sql);
+        if($conexao) {
+            echo "Feed Excluído com sucesso !";
+        } else {
+            echo "Ocorreu um erro durante a exclusão.";
         };
     }
 ?>
